@@ -1,108 +1,74 @@
-DROP DATABASE IF EXISTS TESORERIA;
-CREATE DATABASE TESORERIA;
-USE TESORERIA;
+DROP DATABASE IF EXISTS preteg2023;
+CREATE DATABASE preteg2023;
+USE preteg2023;
 
-CREATE TABLE Instituciones(
+CREATE TABLE tipos(
     Id int(5) not null auto_increment,
     Nombre varchar(100),
-    Nombre_Corto varchar(10),
     PRIMARY KEY (Id)
 );
-
-
-CREATE TABLE Departementos(
+CREATE TABLE residuos(
     Id int(4) not null auto_increment,
     Nombre varchar(80) not null,
-    Telefono varchar(15),
-    Email varchar(100),
-    Institucion  int(3),
+    Descripcion text,
+    Tipo  int(3),
     PRIMARY KEY (Id),
-    FOREIGN KEY (Institucion) REFERENCES Instituciones (Id)
+    FOREIGN KEY (Tipo) REFERENCES tipos (Id)
 );
 
 
-CREATE TABLE Miembros(
+CREATE TABLE Clientes(
     Id int(4) not null auto_increment,
     Nombre varchar(60),
-    Dpto int (4),
-    PRIMARY KEY (Id),
-    FOREIGN KEY (Dpto) REFERENCES Departementos (Id)
+    Apellidos varchar(100),
+    Telefono varchar(15),
+    Email varchar(100),
+    TipoCliente varchar(50),
+    foto varchar (10),
+    PRIMARY KEY (Id)
 );
 
 CREATE TABLE Usuarios(
     Id int(5) not null auto_increment,
     Nombre varchar(50),
     Pass varchar(100),
-    Foto BLOB,
-    Dpto int(4),
     Tipo_Usuario varchar(15),
+    Clientes int(4),
     PRIMARY KEY (Id),
-    FOREIGN KEY (Dpto) REFERENCES Departementos (Id)
+    FOREIGN KEY (Clientes) REFERENCES Clientes (Id)
 );
 
-
-
-
-CREATE TABLE Salidas(
+CREATE TABLE tieneResiduos(
     Id int(10) not null auto_increment,
-    NumRegistro varchar(8),
+    cantidad varchar(8),
     FechaRegistro date,
-    TipoDoc varchar(50),
-    Archivo varchar(15),
-    Descripcion text,
-    PalabrasClaves text,
-    FechaFirma date,
-    Importe varchar(20),
-    Destino int(3),
-    Usuario int(3),
+    residuo int(3),
+    Cliente int(3),
     PRIMARY KEY (Id),
-    FOREIGN KEY (Destino) REFERENCES Departementos (Id),
-    FOREIGN KEY (Usuario) REFERENCES Usuarios (Id)
+    FOREIGN KEY (residuo) REFERENCES residuos (Id),
+    FOREIGN KEY (Cliente) REFERENCES Clientes (Id)
 );
-CREATE TABLE Entradas(
+CREATE TABLE productos(
     Id int(10) not null auto_increment,
-    NumRegistro varchar(8),
+    Nombre varchar(100),
+    Descripcion text,
+    precio varchar(50),
+    PRIMARY KEY (Id)
+);
+CREATE TABLE Compra(
+    Id int(10) not null auto_increment,
+    cantidad varchar(8),
     FechaRegistro date,
-    TipoDoc varchar(50),
-    Archivo varchar(15),
-    Descripcion text,
-    PalabrasClaves text,
-    FechaFirma date,
-    Importe varchar(20),
-    Procedencia int(3),
-    Usuario int(3),
+    precio varchar(20),
+    producto int(3),
+    Cliente int(3),
     PRIMARY KEY (Id),
-    FOREIGN KEY (Procedencia) REFERENCES Departementos (Id),
-    FOREIGN KEY (Usuario) REFERENCES Usuarios (Id)
+    FOREIGN KEY (producto) REFERENCES productos (Id),
+    FOREIGN KEY (Cliente) REFERENCES Clientes (Id)
 );
 
-CREATE TABLE Decretos(
-    Id int(20) not null auto_increment,
-    Descripcion text,
-    Fecha date,
-    Archivo varchar(15),
-    DocEntrada int(10),
-    PRIMARY KEY (Id),
-    FOREIGN KEY (DocEntrada) REFERENCES Entradas (Id)
-);
 
-CREATE TABLE Destino(
-    Id int(15) not null auto_increment,
-    Miembro int(4),
-    Decreto int(20),
-    PRIMARY KEY (Id),
-    FOREIGN KEY (Miembro) REFERENCES Miembros (Id),
-    FOREIGN KEY (Decreto) REFERENCES Decretos (Id)
-);
 
-CREATE TABLE Informe(
-    Id int(20) not null auto_increment,
-    Estado varchar(3),
-    Descripcion text,
-    Archivo varchar(15),
-    Dpto int(4),
-    Decreto int(20),
-    PRIMARY KEY (Id),
-    FOREIGN KEY (Dpto) REFERENCES Departementos (Id),
-    FOREIGN KEY (Decreto) REFERENCES Decretos (Id)
-);
+
+
+

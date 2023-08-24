@@ -11,9 +11,9 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-DROP DATABASE IF EXISTS TESORERIA;
-CREATE DATABASE TESORERIA;
-USE TESORERIA;
+DROP DATABASE IF EXISTS preteg2023;
+CREATE DATABASE preteg2023;
+USE preteg2023;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -31,8 +31,9 @@ USE TESORERIA;
 -- Table structure for table `decretos`
 --
 
-CREATE TABLE `decretos` (
+CREATE TABLE `residuos` (
   `Id` int(20) NOT NULL,
+   `Nombre` varchar(50), 
   `Descripcion` text DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   `Archivo` varchar(15) DEFAULT NULL,

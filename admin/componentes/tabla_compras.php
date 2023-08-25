@@ -1,8 +1,8 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-6 mb-2">
         <a href="../users/nuevaEntrada.php" class="btn btn-primary"><i class="mdi mdi-account-plus"></i></a>
     </div>
-</div>
+</div> -->
 
 
 
@@ -12,11 +12,11 @@
 if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'insertado') {
 ?>
 
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <!-- <div class="alert alert-info alert-dismissible fade show" role="alert">
         <i class="fas fa-info-circle"></i>
         <strong> Hola!</strong> su registro ha tenido Exito.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    </div> -->
 
 <?php
 
@@ -30,11 +30,11 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'insertado') {
 if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'actualizado') {
 ?>
 
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <!-- <div class="alert alert-info alert-dismissible fade show" role="alert">
         <i class="fas fa-info-circle"></i>
         <strong> Hola!</strong> su Actualizacion ha tenido Exito.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    </div> -->
 
 <?php
 
@@ -89,9 +89,10 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                 <table id="tablaEntrada" class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Residuo</th>
-                            <th>Tipo de Residuo</th>
                             <th>Cantidad</th>
+                            <th>Producto</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio Total</th>
                             <th>Fecha</th>
                             <td>ACCIONES</td>
                         </tr>
@@ -106,31 +107,24 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                             ?>
 
                             <tr>
+                            <td> <?= $row_entradas['cantidad'];?></td>
                                 
                                 
                                 <?php
-                                $procedencia = $row_entradas['residuo']; 
-                                $buscarProcedencia = "SELECT * FROM residuos WHERE Id = '$procedencia'";
+                                $procedencia = $row_entradas['producto']; 
+                                $buscarProcedencia = "SELECT * FROM productos WHERE Id = '$procedencia'";
                                 $Resultprocedencia = $conn->query($buscarProcedencia);
 
                                 while ($filasEntradas = $Resultprocedencia->fetch_assoc()) {
 
                                 ?>
                                     <td> <?= $filasEntradas['Nombre']; ?></td>
-                                    <?php
-                                        $tipo = $filasEntradas['Tipo']; 
-                                        $tipoResiduo = "SELECT * FROM tipos WHERE Id = '$tipo'";
-                                        $ResultResid = $conn->query($tipoResiduo);
-
-                                        while ($TipoResiNom = $ResultResid->fetch_assoc()) {
-
-                                    ?>
-                                    
-                                    <td> <?= $TipoResiNom['Nombre']; ?></td>
-                                    <?php  } ?>
+                                                                    
+                                    <td> <?= $filasEntradas['precio']; ?> XAF</td>
+                                   
                                 <?php  } ?>
 
-                                <td> <?= $row_entradas['cantidad'];?> Kg</td>
+                                <td> <?= $row_entradas['precio'];?> XAF</td>
                                 <td> <?= $row_entradas['FechaRegistro']; ?></td>
                                 <td>
                                     <a class="btn btn-success me-2" href="../users/detallesEntradas.php?id=<?php echo $row_entradas['Id']; ?>" class="btn btn-sm btn-warning"><i class="mdi mdi-eye"></i></a>

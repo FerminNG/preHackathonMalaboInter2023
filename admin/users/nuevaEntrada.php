@@ -2,7 +2,7 @@
 
 require '../conexion/conexion.php';
 
-  $sqlInstituciones = "SELECT * FROM instituciones WHERE Nombre_Corto !='TGE'";
+  $sqlInstituciones = "SELECT * FROM residuos";
 
   $instituciones = $conn->query($sqlInstituciones);
 
@@ -195,7 +195,7 @@ require '../conexion/conexion.php';
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row">                  
-                <?php require "../componentes/formularioEntradas.php"; ?>  
+                <?php require "../componentes/formularioEntradas.php"; ?>   
                 </div>
             </div>
             <!-- content-wrapper ends -->

@@ -6,24 +6,24 @@
 
 include '../conexion/conexion.php';
 // cogiendo el numero de entradas
-$sql_entradas = "SELECT * FROM entradas where Usuario=$usuario_id";
-$resultado_entradas = mysqli_query($conn, $sql_entradas);
-$numero_entradas = mysqli_num_rows($resultado_entradas);
+// $sql_entradas = "SELECT * FROM usuarios where id=1";
+// $resultado_entradas = mysqli_query($conn, $sql_entradas);
+// $numero_entradas = mysqli_num_rows($resultado_entradas);
 
 // cogiendo el numero de Salidas
-$sql_salidas = "SELECT * FROM salidas where Usuario=$usuario_id";
-$resultado_salidas = mysqli_query($conn, $sql_salidas);
-$numero_salidas = mysqli_num_rows($resultado_salidas);
+// $sql_salidas = "SELECT * FROM salidas where Usuario=$usuario_id";
+// $resultado_salidas = mysqli_query($conn, $sql_salidas);
+// $numero_salidas = mysqli_num_rows($resultado_salidas);
 
 // cogiendo el numero de INFORMES
-$sql_informe = "SELECT `usuarios`.*, `departementos`.*, `informe`.* FROM `usuarios` LEFT JOIN `departementos` ON `usuarios`.`Dpto` = `departementos`.`Id` LEFT JOIN `informe` ON `informe`.`Dpto` = `departementos`.`Id` where usuarios.Id=$usuario_id";
-$resultado_informe = mysqli_query($conn, $sql_informe);
-$numero_informe = mysqli_num_rows($resultado_informe);
+// $sql_informe = "SELECT `usuarios`.*, `departementos`.*, `informe`.* FROM `usuarios` LEFT JOIN `departementos` ON `usuarios`.`Dpto` = `departementos`.`Id` LEFT JOIN `informe` ON `informe`.`Dpto` = `departementos`.`Id` where usuarios.Id=$usuario_id";
+// $resultado_informe = mysqli_query($conn, $sql_informe);
+// $numero_informe = mysqli_num_rows($resultado_informe);
 
 // cogiendo el numero de DECRETOS
-$sql_decreto = "SELECT `usuarios`.`Id`, `entradas`.`NumRegistro`, `decretos`.`Id` FROM `usuarios` LEFT JOIN `entradas` ON `entradas`.`Usuario` = `usuarios`.`Id` LEFT JOIN `decretos` ON `decretos`.`DocEntrada` = `entradas`.`Id` where usuarios.Id=$usuario_id";
-$resultado_decreto = mysqli_query($conn, $sql_decreto);
-$numero_decretos = mysqli_num_rows($resultado_decreto);
+// $sql_decreto = "SELECT `usuarios`.`Id`, `entradas`.`NumRegistro`, `decretos`.`Id` FROM `usuarios` LEFT JOIN `entradas` ON `entradas`.`Usuario` = `usuarios`.`Id` LEFT JOIN `decretos` ON `decretos`.`DocEntrada` = `entradas`.`Id` where usuarios.Id=$usuario_id";
+// $resultado_decreto = mysqli_query($conn, $sql_decreto);
+// $numero_decretos = mysqli_num_rows($resultado_decreto);
 
 // // cogiendo el numero de DESTINOS
 // $sql_destinos = "SELECT * FROM destino where Usuario=$usuario_id";
@@ -262,32 +262,32 @@ $numero_decretos = mysqli_num_rows($resultado_decreto);
                       <div class="statistics-details d-flex align-items-center justify-content-between">
                         <div>
                           <p class="statistics-title">Entradas</p>
-                          <h3 class="rate-percentage"><?php echo $numero_entradas;    ?></h3>
+                          <h3 class="rate-percentage"><?php #echo $numero_entradas;    ?></h3>
                           <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
                         </div>
                         <div>
                           <p class="statistics-title">Salidas</p>
-                          <h3 class="rate-percentage"><?php echo $numero_salidas;    ?></h3>
+                          <h3 class="rate-percentage"><?php #echo $numero_salidas;    ?></h3>
                           <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
                         </div>
                         <div>
                           <p class="statistics-title">Informes</p>
-                          <h3 class="rate-percentage"><?php echo $numero_informe;    ?></h3>
+                          <h3 class="rate-percentage"><?php #echo $numero_informe;    ?></h3>
                           <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
                         </div>
                         <div class="d-none d-md-block">
                           <p class="statistics-title">Decretos</p>
-                          <h3 class="rate-percentage"><?php echo $numero_decretos;    ?></h3>
+                          <h3 class="rate-percentage"><?php #echo $numero_decretos;    ?></h3>
                           <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
                         </div>
                         <div class="d-none d-md-block">
                           <p class="statistics-title">Fecha</p>
-                          <h3 class="rate-percentage"><?php echo $fecha_actual;    ?></h3>
+                          <h3 class="rate-percentage"><?php #echo $fecha_actual;    ?></h3>
                           <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
                         </div>
                         <div class="d-none d-md-block">
                           <p class="statistics-title">Hora</p>
-                          <h3 class="rate-percentage"><?php echo $hora;    ?></h3>
+                          <h3 class="rate-percentage"><?php #echo $hora;    ?></h3>
                           <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
                         </div>
                       </div>

@@ -10,28 +10,28 @@
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon mdi mdi-folder-open"></i>
-                <span class="menu-title">Entradas</span>
+                <span class="menu-title">Residuos</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="./entradas.php">Nueva Entrada</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="./entradas.php">Nuevo Residuo</a></li>
                 </ul>
             </div>
         </li>        
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                 <i class="menu-icon mdi mdi-folder"></i>
-                <span class="menu-title">Salidas</span>
+                <span class="menu-title">Compra Productos</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="./salidas.php">Nueva Salida</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./compras.php">Nueva Compra</a></li>
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                 <i class="menu-icon mdi mdi-tag-multiple"></i>
                 <span class="menu-title">Decretos</span>
@@ -42,8 +42,8 @@
                     <li class="nav-item"> <a class="nav-link" href="./decretos.php">Nuevo Decreto</a></li>
                 </ul>
             </div>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                 <i class="menu-icon mdi mdi-folder-multiple"></i>
                 <span class="menu-title">Informes</span>
@@ -54,6 +54,6 @@
                     <li class="nav-item"> <a class="nav-link" href="./informes.php">Nuevo Informe</a></li>
                 </ul>
             </div>
-        </li>      
+        </li>       -->
     </ul>
 </nav>

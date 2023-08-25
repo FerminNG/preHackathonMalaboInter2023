@@ -53,6 +53,7 @@ CREATE TABLE productos(
     Nombre varchar(100),
     Descripcion text,
     precio varchar(50),
+    Foto blob,
     PRIMARY KEY (Id)
 );
 CREATE TABLE Compra(

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-6 mb-2">
-        <a href="../admin/nuevoProducto.php" class="btn btn-primary"> <i class="mdi mdi-account-plus"></i></a>
+        <a href="../admin/nuevoResiduo.php" class="btn btn-primary"><i class="mdi mdi-account-plus"></i></a>
     </div>
 </div>
 
@@ -61,15 +61,14 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'error') {
 ?>
 
 
-<!-- alerta -->
-
+<!-- alerta de emilinar -->
 <?php
 if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
 ?>
 
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
         <i class="fas fa-info-circle"></i>
-        <strong> Hola!</strong> Su Registro se ha Eliminado.
+        <strong> Hola!</strong> Se Elimino su Registro.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
@@ -81,9 +80,19 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
 
 
 
+
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="card-title">Todos los Departamentos</h4>
+                </div>
+
+
+            </div>
+
 
             <div class="table-responsive">
                 <table id="myTable" class="table table-hover">
@@ -92,63 +101,66 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                             <th>ID</th>
                             <th>NOMBRE</th>
                             <th>DESCRIPCION</th>
-                            <th>PRECIO</th>
-                            <th>FOTO</th>
-                            <th>EDITAR</th>
-                            <th>ELIMINAR</th>
+                            <th>TIPO</th>
+                            <td>ACCIONES</td>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php while ($row_departamentos = $departamentos->fetch_assoc()) {  ?>
 
-                        <?php while ($row_pacientes = $pacientes->fetch_assoc()) {  ?>
-
-                            <?php 
-                            $datos = $row_pacientes['Id'];
+                            <?php
+                            $datos = $row_departamentos['Id'];
 
                             ?>
-
                             <tr>
-                                <td> <?= $row_pacientes['Id']; ?></td>
-                                <td> <?= $row_pacientes['Nombre']; ?></td>
-                                <td> <?= $row_pacientes['Descripcion']; ?></td>
-
-
-                                <td> <?= $row_pacientes['precio']; ?></td>
+                                <td> <?= $row_departamentos['Id']; ?></td>
+                                <td> <?= $row_departamentos['Nombre']; ?></td>
+                                <td> <?= $row_departamentos['Descripcion']; ?></td>
                                 
-                                <td><img src="data:image/*;base64,<?php echo base64_encode($row_pacientes['Foto']); ?> " alt=""  height="50px"></td>
+
+
+                                <?php
+
+                                $id_tipo= $row_departamentos['Tipo'];
+
+                                $sql1 = "SELECT * FROM tipos WHERE Id=$id_tipo";
+
+                                $resultado = mysqli_query($conn, $sql1);
+
+                                $fila1 = mysqli_fetch_assoc($resultado);
+
+                                $tipo = $fila1['Nombre'];
+
+                                ?>
+
+
+                                <td><?= $tipo ?></td>
                                 <td>
-                                    <a href="../admin/editarProductos.php?id=<?php echo $row_pacientes['Id'];  ?>" class="btn btn-warning me-2" ">EDITAR</a>
+                                    <a href="../admin/editarResiduos.php?id=<?php echo $row_departamentos['Id'];  ?>" class="btn btn-warning me-2" ">EDITAR</a>
+                              
+                                    <a href=" #" onclick="agregarForm('<?php echo $datos; ?>');" class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#eliminaModal"><i class="mdi mdi-archive"></i></a>
                                 </td>
-                                <td>
-                               
-                                <a href="#" onclick="agregarForm('<?php echo $datos; ?>');" class="btn btn-danger me-2"  data-bs-toggle="modal" data-bs-target="#eliminaModal"><i class="mdi mdi-delete"></i></a>
-                                </td>
+
+
                             </tr>
 
 
                         <?php } ?>
                     </tbody>
+
                 </table>
             </div>
         </div>
     </div>
 </div>
 
-<?php  include '../admin/ModaleliminarProductos.php' ;  ?>
-
+<?php include '../admin/ModaleliminarResiduos.php';         ?>
 
 
 
 
 <script>
-  
-
-
-
-
-
-
-
+    // boton eliminar codigo del modal..
 
     // agregar datos al formulario
     function agregarForm(datos) {
@@ -158,5 +170,4 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
         $('#Id').val(d[0]);
 
     }
-   
 </script>

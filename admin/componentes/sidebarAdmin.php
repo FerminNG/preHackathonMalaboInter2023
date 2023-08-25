@@ -15,8 +15,8 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="../admin/departamentos.php">Departamentos</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../admin/instituciones.php">Instituciones</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="../admin/residuos.php">Residuos</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="../admin/tipos.php">Tipos-Residuos</a></li>
                 </ul>
             </div>
         </li>
@@ -24,12 +24,12 @@
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                 <i class="menu-icon mdi mdi-account-tie"></i>
-                <span class="menu-title">Empleados</span>
+                <span class="menu-title">PRODUCTOS</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="charts">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="../admin/miembros.php">Miembros</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="../admin/productos.php">Productos</a></li>
                 </ul>
             </div>
         </li>

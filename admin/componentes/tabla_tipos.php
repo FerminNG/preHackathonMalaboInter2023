@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-6 mb-2">
-        <a href="../admin/nuevoProducto.php" class="btn btn-primary"> <i class="mdi mdi-account-plus"></i></a>
+        <a href="../admin/nuevaTipo.php" class="btn btn-primary"><i class="mdi mdi-account-plus"></i></a>
     </div>
 </div>
 
@@ -91,9 +91,6 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                         <tr>
                             <th>ID</th>
                             <th>NOMBRE</th>
-                            <th>DESCRIPCION</th>
-                            <th>PRECIO</th>
-                            <th>FOTO</th>
                             <th>EDITAR</th>
                             <th>ELIMINAR</th>
                         </tr>
@@ -110,18 +107,12 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
                             <tr>
                                 <td> <?= $row_pacientes['Id']; ?></td>
                                 <td> <?= $row_pacientes['Nombre']; ?></td>
-                                <td> <?= $row_pacientes['Descripcion']; ?></td>
-
-
-                                <td> <?= $row_pacientes['precio']; ?></td>
-                                
-                                <td><img src="data:image/*;base64,<?php echo base64_encode($row_pacientes['Foto']); ?> " alt=""  height="50px"></td>
                                 <td>
-                                    <a href="../admin/editarProductos.php?id=<?php echo $row_pacientes['Id'];  ?>" class="btn btn-warning me-2" ">EDITAR</a>
+                                    <a href="../admin/editartipo.php?id=<?php echo $row_pacientes['Id'];  ?>" class="btn btn-warning me-2" ">EDITAR</a>
                                 </td>
                                 <td>
                                
-                                <a href="#" onclick="agregarForm('<?php echo $datos; ?>');" class="btn btn-danger me-2"  data-bs-toggle="modal" data-bs-target="#eliminaModal"><i class="mdi mdi-delete"></i></a>
+                                <a href="#" onclick="agregarForm('<?php echo $datos; ?>');" class="btn btn-danger me-2"  data-bs-toggle="modal" data-bs-target="#eliminaModalInstitucion"><i class="mdi mdi-archive"></i></a>
                                 </td>
                             </tr>
 
@@ -134,10 +125,13 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
     </div>
 </div>
 
-<?php  include '../admin/ModaleliminarProductos.php' ;  ?>
+<?php  include '../admin/Modaleliminartipo.php'    ?>
 
 
 
+<script>
+    $('#example').DataTable();
+</script>
 
 
 <script>
@@ -145,10 +139,7 @@ if (isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado') {
 
 
 
-
-
-
-
+        // boton eliminar codigo del modal..
 
     // agregar datos al formulario
     function agregarForm(datos) {

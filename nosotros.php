@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-5 mb-4">ECO-WORLD</h1>
+                    <h1 class="display-5 mb-4">PRO-WORLD</h1>
                     <p class="mb-4">ECO-WORLD va a la guerra contra la basura y los resuduos que contaminan el ecosistema.</p>
                     <p><i class="fa fa-check text-primary me-3"></i>Reduce la contaminación medioambiental</p>
                     <p><i class="fa fa-check text-primary me-3"></i>Recicla los reciduos.</p>

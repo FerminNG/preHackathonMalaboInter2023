@@ -89,8 +89,8 @@ $fecha_actual=date("d-m-y");
     <div class="navbar-menu-wrapper d-flex align-items-top">
         <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                <h1 class="welcome-text"><?php echo $saludo;    ?> <span class="text-black fw-bold"> <?=  $usuario;   ?></span></h1>
-                <h3 class="welcome-sub-text"><?php echo $fecha_actual;    ?> <?php echo "$vector[$numero] "; ?></h3>
+                <h1 class="welcome-text"><?php #echo $saludo;    ?> <span class="text-black fw-bold"> </span></h1>
+                <h3 class="welcome-sub-text"><?php #echo $fecha_actual;    ?> <?php #echo "$vector[$numero] "; ?></h3>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -105,7 +105,7 @@ $fecha_actual=date("d-m-y");
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                     <div class="dropdown-header text-center">
                         <img class="img-md rounded-circle" src="../images/faces/face8.jpg" alt="Profile image">
-                        <p class="mb-1 mt-3 font-weight-semibold"><?php  echo $usuario;     ?></p>
+                        <p class="mb-1 mt-3 font-weight-semibold"><?php  #echo $usuario;     ?></p>
                         <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
                     </div>
                     <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My

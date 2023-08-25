@@ -2,7 +2,7 @@
 
 require '../conexion/conexion.php';
 
-$sqlEntradas= " SELECT * FROM tieneresiduos";
+$sqlEntradas= " SELECT * FROM compra";
 
 $entradas= $conn->query($sqlEntradas);
 
@@ -193,8 +193,16 @@ $entradas= $conn->query($sqlEntradas);
         <!-- partial sidebar final -->
         <div class="main-panel">
             <div class="content-wrapper">
-                <div class="row">                  
-                <?php require "../componentes/tabla_entrada.php"; ?>   
+                <div class="row">     
+                <?php
+                    require '../conexion/conexion.php';
+
+                    $sqlInstituciones = "SELECT * FROM productos";
+
+                    $instituciones = $conn->query($sqlInstituciones);
+                    ?>             
+                <?php require "../componentes/formularioCompras.php"; ?>  
+                <?php require "../componentes/tabla_compras.php"; ?>  
                 </div>
             </div>
             <!-- content-wrapper ends -->

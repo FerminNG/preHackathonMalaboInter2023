@@ -1,10 +1,30 @@
-.TopDetallEntradaP{
-    width: 100%;
+.TopDetallEntradaP {
+  width: 100%;
 }
-.TopDetallEntrada{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #f3f3f3;
+.TopDetallEntrada {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f3f3f3;
 }
+
+/* .bodyFormCompra {
+  width: 100%;
+}
+#FormCompra {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.grupoForm {
+  width: 35%;
+}
+.grupoForm .compo {
+  width: 35%;
+}
+
+.grupoForm .btn {
+  width: 30%;
+} */
